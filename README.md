@@ -1,98 +1,115 @@
 <div align="center">
 
-# 🖥️ LCD_Studio
+# 🖥️ LCD Studio
 
-### **Bộ công cụ thiết kế giao diện đồ họa LCD/TFT & HMI chuyên nghiệp cho Hệ thống Nhúng**
-*Thiết kế trực quan — Tối ưu tài nguyên vi điều khiển — Sinh mã C++ / Arduino tự động 1-Click*
+### Visual LCD/TFT & HMI GUI Designer for ESP32, Arduino, STM32 — Free, Portable, Offline
+**Bộ công cụ thiết kế giao diện LCD/TFT & HMI cho vi điều khiển — kéo thả, hỗ trợ tiếng Việt, xuất mã C++ / Arduino 1-Click**
 
-[![Executable](https://img.shields.io/badge/Download-LCD__Studio.exe-4f46e5?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/)
-[![Portable](https://img.shields.io/badge/Portable-Chạy%20ngay%20(Không%20cần%20cài%20đặt)-059669?style=for-the-badge)](https://github.com/)
-[![Windows Support](https://img.shields.io/badge/Hệ%20điều%20hành-Windows%2010%20%2F%2011%20(64--bit)-0284c7?style=for-the-badge&logo=windows11)](https://github.com/)
-[![Offline](https://img.shields.io/badge/Offline-100%25%20Độc%20lập-success?style=for-the-badge)](https://github.com/)
+[![Release](https://img.shields.io/github/v/release/YOUR_USERNAME/LCD_Studio?style=for-the-badge&color=4f46e5&label=Download%20LCD%20Studio)](https://github.com/YOUR_USERNAME/LCD_Studio/releases)
+[![Stars](https://img.shields.io/github/stars/YOUR_USERNAME/LCD_Studio?style=for-the-badge&color=f59e0b)](https://github.com/YOUR_USERNAME/LCD_Studio/stargazers)
+[![Downloads](https://img.shields.io/github/downloads/YOUR_USERNAME/LCD_Studio/total?style=for-the-badge&color=059669)](https://github.com/YOUR_USERNAME/LCD_Studio/releases)
+[![Windows](https://img.shields.io/badge/Windows-10%20%2F%2011%20(64--bit)-0284c7?style=for-the-badge&logo=windows11)](https://github.com/YOUR_USERNAME/LCD_Studio/releases)
+[![Portable](https://img.shields.io/badge/Portable-No%20install-059669?style=for-the-badge)](https://github.com/YOUR_USERNAME/LCD_Studio/releases)
 [![License](https://img.shields.io/badge/License-MIT-gray?style=for-the-badge)](LICENSE)
 
----
+**English** • **Tiếng Việt** (cuộn xuống)
 
-[Tải về & Chạy ngay](#-tải-về--chạy-ngay) •
-[Tính năng nổi bật](#-tính-năng-đột-phá) •
-[Phần cứng hỗ trợ](#-phần-cứng--màn-hình-hỗ-trợ) •
-[Quy trình 3 bước](#-quy-trình-làm-việc-3-bước) •
-[Mã nguồn nhúng sinh ra](#-mã-nguồn-nhúng-sinh-ra) •
-[Mở rộng Font chữ](#-tùy-biến--thêm-font-chữ-mới)
-
----
+[Download](#-tải-về--chạy-ngay) •
+[Features](#-tính-năng-đột-phá) •
+[Hardware](#-phần-cứng--màn-hình-hỗ-trợ) •
+[Workflow](#-quy-trình-làm-việc-3-bước) •
+[Generated code](#-mã-nguồn-nhúng-sinh-ra) •
+[FAQ](#-câu-hỏi-thường-gặp-faq)
 
 </div>
 
-## 💡 Giới thiệu
+<!-- TODO: thêm ảnh chụp màn hình / GIF demo ngay đây (rất quan trọng để thu hút người xem)
+<p align="center"><img src="docs/screenshot.png" alt="LCD Studio - visual LCD TFT GUI designer for ESP32 and Arduino" width="90%"></p>
+-->
 
-Việc lập trình giao diện màn hình cho vi điều khiển (ESP32, STM32, Arduino, RP2040...) trước đây là một nỗi cực nhọc lớn: kỹ sư phải **ngồi tính từng tọa độ pixel bằng tay**, vất vả tạo nút bấm, căn lề văn bản, xử lý font chữ tiếng Việt bị lỗi dấu, và đau đầu với hiện tượng màn hình nhấp nháy giật lag do phải quét lại toàn bộ màn hình.
+---
 
-**LCD_Studio** sinh ra để xóa bỏ hoàn toàn rào cản đó!
+## 🌐 What is LCD Studio? (English)
 
-Được phát hành dưới dạng **ứng dụng Portable (`LCD_Studio.exe`) duy nhất**, bạn chỉ cần tải về và nhấp đúp để sử dụng ngay mà **không cần cài đặt bất kỳ môi trường lập trình phức tạp nào** (không cần Node.js, không cần Python). Giao diện kéo-thả mượt mà như Figma, đầu ra là **mã nguồn C++ thuần túy, siêu nhẹ và tối ưu bộ nhớ** cho vi điều khiển.
+**LCD Studio** (also written *LCD_Studio*) is a free, portable **visual GUI designer for LCD / TFT / OLED displays and HMI touch screens** on embedded systems. Drag and drop 48+ widgets, simulate touch interaction, then export clean **C++ / Arduino code** for **ESP32, ESP32-S3, STM32, Raspberry Pi Pico (RP2040) and Arduino**.
+
+- 🎨 Figma-like drag & drop canvas, multi-screen projects, layers, undo/redo
+- ⚡ 48+ IoT widgets: button, slider, gauge, graph, chart, switch, battery, WiFi signal...
+- 🔤 Full **Vietnamese font** support with bitmap banking (beats the 64 KiB `Adafruit_GFX` font limit)
+- 🚀 Partial refresh (dirty-region) + DMA for flicker-free, high-FPS updates
+- 📟 Drivers: ST7796S, ST7789, ILI9341, ST7735, SSD1306, GC9A01 — Touch: GT911, XPT2046, FT6236
+- 📦 One-click export: `.ino` sketch, screens, fonts, images (RGB565 PROGMEM), drivers
+- 💾 Single `LCD_Studio.exe`, offline, no Node.js / Python needed
+
+> Looking for an **LCD GUI designer**, **TFT UI builder**, **Arduino display designer**, **ESP32 HMI editor** or a lightweight alternative to heavier UI toolchains? You're in the right place. ⭐ Star the repo if it helps you!
+
+---
+
+## 💡 Giới thiệu (Tiếng Việt)
+
+Lập trình giao diện màn hình cho vi điều khiển (ESP32, STM32, Arduino, RP2040...) trước đây rất cực nhọc: phải **tính từng tọa độ pixel bằng tay**, tạo nút bấm, căn lề văn bản, xử lý font tiếng Việt bị lỗi dấu và đau đầu với hiện tượng màn hình nhấp nháy do quét lại toàn bộ màn hình.
+
+**LCD Studio** (LCD_Studio) xóa bỏ rào cản đó! Phần mềm phát hành dưới dạng **ứng dụng Portable duy nhất (`LCD_Studio.exe`)**: tải về, nhấp đúp là dùng — **không cần cài đặt** Node.js hay Python. Giao diện kéo-thả mượt như Figma, đầu ra là **mã C++ thuần túy, siêu nhẹ, tối ưu bộ nhớ**.
 
 ---
 
 ## ⚡ Tải về & Chạy ngay
 
-> 🚀 **Hoàn toàn Portable:** Không cần quyền Administrator, không cài đặt rác vào Registry hệ thống, có thể copy vào USB chạy trên mọi máy tính Windows!
+> 🚀 **Hoàn toàn Portable:** không cần quyền Administrator, không ghi vào Registry, copy vào USB chạy trên mọi máy Windows!
 
-1. **Tải về:** Tải file **`LCD_Studio.exe`** (hoặc gói `LCD_Studio_Portable.zip`) từ mục [Releases](https://github.com/).
-2. **Khởi chạy:** Nhấp đúp vào **`LCD_Studio.exe`** để mở ngay phần mềm.
-3. **Bắt đầu thiết kế:** Mở dự án mẫu có sẵn tại **File → Mở dự án mẫu IoT** để trải nghiệm ngay lập tức!
+1. **Tải về:** lấy **`LCD_Studio.exe`** (hoặc `LCD_Studio_Portable.zip`) tại mục [Releases](https://github.com/YOUR_USERNAME/LCD_Studio/releases).
+2. **Khởi chạy:** nhấp đúp vào **`LCD_Studio.exe`**.
+3. **Bắt đầu thiết kế:** vào **File → Mở dự án mẫu IoT** để trải nghiệm ngay.
 
 ---
 
 ## 🌟 Tính năng đột phá
 
 ### 🎨 1. Không gian thiết kế trực quan (Visual Canvas Designer)
-* **Kéo thả mượt mà:** Trải nghiệm thiết kế Canvas 2D siêu tốc, hỗ trợ Pan/Zoom vô cực, thước đo, lưới tọa độ Snap-to-Grid và vạch căn chỉnh thông minh (Smart Guides).
-* **Đa màn hình (Multi-Screen Simulator):** Thiết kế nhiều trang màn hình (Home, Settings, Dashboard, Popup...) trong cùng một dự án.
-* **Quản lý Layer & Component:** Phân cấp cây thư mục Layer, nhóm (Group), khóa/ẩn, nhân đôi (Duplicate) và lưu Component tái sử dụng.
-* **Hoàn tác an toàn (Undo/Redo):** Hỗ trợ lưu lịch sử lên tới **80 bước**, thoải mái thử nghiệm mà không sợ mất thiết kế.
+* **Kéo thả mượt mà:** Canvas 2D tốc độ cao, Pan/Zoom, thước đo, lưới Snap-to-Grid và Smart Guides.
+* **Đa màn hình (Multi-Screen):** nhiều trang (Home, Settings, Dashboard, Popup...) trong cùng một dự án.
+* **Quản lý Layer & Component:** cây Layer, Group, khóa/ẩn, nhân đôi, lưu Component tái sử dụng.
+* **Undo/Redo an toàn:** lưu tới **80 bước** lịch sử.
 
-### ⚡ 2. Kho Widget đồ sộ (48+ Widgets chuyên dụng cho IoT)
-LCD_Studio tích hợp sẵn hơn 48 loại widget đa dạng:
-* **Cơ bản (Basic):** Văn bản (Label/Text), Hình chữ nhật bo góc (Rectangle/Panel), Nút bấm (Button), Vòng tròn (Circle), Đường thẳng (Line), Icon Unicode.
-* **Điều khiển & Nhập liệu (Input):** Thanh trượt (Slider), Núm xoay (Knob), Công tắc gạt (Switch/Toggle), Hộp kiểm (Checkbox), Nút chọn (Radio), Danh sách chọn (Dropdown), Hộp nhập liệu số/văn bản.
-* **Hiển thị & Giám sát (Display):** Thanh tiến trình (Progress Bar), Vòng tiến trình (Circular Progress), Đồng hồ đo (Gauge/Arc), Báo pin (Battery), Trạng thái kết nối (Status Indicator), Đèn LED.
-* **Biểu đồ dữ liệu thời gian thực (Data & Charts):** Biểu đồ đường (Line Chart), Biểu đồ cột (Bar Chart), **Đồ thị thời gian thực (Realtime Graph)** tự động vẽ lại khi có biến thay đổi, Bảng biểu (Table/List).
-* **Cảm biến & IoT chuyên sâu:** Nhiệt độ (°C), Độ ẩm (%), Điện áp (V), Dòng điện (A), Tốc độ vòng tua (RPM), Cường độ sóng (WiFi / BLE / Signal).
+### ⚡ 2. Kho Widget đồ sộ (48+ Widgets cho IoT)
+* **Cơ bản:** Text/Label, Rectangle/Panel, Button, Circle, Line, Icon Unicode.
+* **Điều khiển & nhập liệu:** Slider, Knob, Switch/Toggle, Checkbox, Radio, Dropdown, ô nhập số/văn bản.
+* **Hiển thị & giám sát:** Progress Bar, Circular Progress, Gauge/Arc, Battery, Status Indicator, LED.
+* **Biểu đồ thời gian thực:** Line Chart, Bar Chart, **Realtime Graph**, Table/List.
+* **Cảm biến & IoT:** Nhiệt độ (°C), Độ ẩm (%), Điện áp (V), Dòng điện (A), RPM, WiFi / BLE / Signal.
 
-### 👆 3. Cơ chế cảm ứng & Tương tác thông minh (Touch & Interaction Engine)
-* **Tương tác trực quan:** Gán sự kiện cảm ứng (`click`, `press`, `release`, `long-press`, `swipe`, `enter`) chỉ bằng vài cú nhấp chuột.
-* **Điều hướng màn hình (Navigation):** Chuyển trang mượt mà, hỗ trợ ngăn xếp Back-stack, mở Popup thông báo và đóng Popup.
-* **Ràng buộc dữ liệu (Data Binding):** Gán biến toàn cục hoặc cục bộ (`temperature`, `relay_state`...) vào thuộc tính widget. Khi dữ liệu vi điều khiển cập nhật, giao diện sẽ tự động đổi màu, đổi giá trị hoặc ẩn/hiện.
+### 👆 3. Cảm ứng & tương tác thông minh (Touch & Interaction Engine)
+* **Sự kiện cảm ứng:** `click`, `press`, `release`, `long-press`, `swipe`, `enter` gán chỉ bằng vài cú nhấp.
+* **Điều hướng màn hình:** chuyển trang, Back-stack, mở/đóng Popup.
+* **Data Binding:** gán biến (`temperature`, `relay_state`...) vào thuộc tính widget; dữ liệu đổi thì giao diện tự đổi màu, giá trị, ẩn/hiện.
 
-### 🔤 4. Quản lý Font & Tiếng Việt đỉnh cao (Vietnamese Font Banking)
-* **Đọc trực tiếp font TTF/OTF:** Tự động quét kho font, kiểm tra độ phủ Unicode tiếng Việt chuẩn xác.
-* **Khắc phục giới hạn 64 KiB của Adafruit_GFX:** Thuật toán **Font Bitmap Banking** độc quyền tự động chia bank 32-bit cho các bộ font chữ lớn và font tiếng Việt đầy đủ dấu mà vẫn giữ nguyên chữ sắc nét, không bao giờ gây tràn bộ nhớ hay lỗi biên dịch.
-* **Xuất Header Font (.h) độc lập:** Xuất mã nguồn font bitmap monochrome sắc nét để dùng riêng cho bất kỳ dự án C/C++ nào.
+### 🔤 4. Font & tiếng Việt đỉnh cao (Vietnamese Font Banking)
+* **Đọc trực tiếp font TTF/OTF**, kiểm tra độ phủ Unicode tiếng Việt.
+* **Vượt giới hạn 64 KiB của Adafruit_GFX** bằng thuật toán **Font Bitmap Banking** (chia bank 32-bit), chữ vẫn sắc nét, không tràn bộ nhớ.
+* **Xuất Header Font (`.h`) độc lập** để dùng cho mọi dự án C/C++.
 
-### 🚀 5. Thuật toán làm mới cục bộ (Partial Refresh & Dirty Planner)
-* **Nói KHÔNG với nhấp nháy màn hình:** Thuật toán `lcd_dirty.h` tính toán chính xác vùng biên thay đổi (dirty region) giữa trạng thái cũ và mới.
-* **Tối ưu DMA:** Chỉ truyền đúng vùng pixel thay đổi qua bus SPI/8080 kết hợp cơ chế DMA (Direct Memory Access), giúp tốc độ khung hình (FPS) mượt mà tối đa ngay cả trên vi điều khiển cấu hình khiêm tốn.
+### 🚀 5. Làm mới cục bộ (Partial Refresh & Dirty Planner)
+* **Không nhấp nháy:** `lcd_dirty.h` tính chính xác vùng thay đổi (dirty region) giữa hai trạng thái.
+* **Tối ưu DMA:** chỉ truyền vùng pixel thay đổi qua SPI/8080 + DMA để FPS cao ngay cả trên MCU khiêm tốn.
 
 ### 📦 6. Xuất mã nguồn trọn gói 1-Click (Native C++ Export)
-* **Một cú nhấp chuột — Có ngay toàn bộ Project:**
-  * File sketch chính (`.ino`)
-  * Cấu hình thiết bị & màn hình riêng biệt (`src/screens/HomeScreen.cpp`, `.h`)
-  * Trình điều khiển phần cứng đã tối ưu hóa
-  * Toàn bộ mảng font chữ và hình ảnh nhúng (RGB565 PROGMEM)
-  * Thư viện nhúng tương thích đi kèm
-* **Xuất Offline Web Runtime:** Đóng gói toàn bộ dự án thành file HTML/JS duy nhất mở trực tiếp bằng trình duyệt để demo hoặc nhúng vào web server của thiết bị IoT.
+* File sketch chính (`.ino`)
+* Cấu hình thiết bị & từng màn hình (`src/screens/HomeScreen.cpp`, `.h`)
+* Driver phần cứng đã tối ưu
+* Font và hình ảnh nhúng (RGB565 PROGMEM)
+* Thư viện tương thích đi kèm
+* **Offline Web Runtime:** đóng gói dự án thành một file HTML/JS mở trực tiếp bằng trình duyệt để demo hoặc nhúng vào web server của thiết bị IoT.
 
 ---
 
 ## 📟 Phần cứng & Màn hình hỗ trợ
 
-| Thành phần | Danh mục phần cứng hỗ trợ |
+| Thành phần | Danh mục hỗ trợ |
 | :--- | :--- |
 | **Vi điều khiển (MCU)** | ESP32, ESP32-S3, ESP32-C3, STM32 (F1/F4), Raspberry Pi Pico (RP2040), Arduino Due/Mega |
-| **IC điều khiển hiển thị (LCD Driver)** | **ST7796S** (SPI & 8080 Parallel), **ST7789**, **ILI9341**, **ST7735**, **SSD1306** (OLED), **GC9A01** (Màn tròn), RGB Parallel panels |
-| **IC Cảm ứng (Touch Controller)** | **GT911** (Điện dung đa điểm - Capacitive), **XPT2046** (Điện trở - Resistive), **FT6236** |
-| **Độ phân giải chuẩn có sẵn** | 480×320 (3.5"), 320×240 (2.8"), 240×240 (1.28"), 800×480 (5.0"), 160×128 (1.8"), 128×64 (0.96"), Tùy chỉnh tự do (Custom) |
+| **LCD Driver IC** | **ST7796S** (SPI & 8080 Parallel), **ST7789**, **ILI9341**, **ST7735**, **SSD1306** (OLED), **GC9A01** (màn tròn), RGB Parallel panels |
+| **Touch Controller** | **GT911** (điện dung), **XPT2046** (điện trở), **FT6236** |
+| **Độ phân giải có sẵn** | 480×320 (3.5"), 320×240 (2.8"), 240×240 (1.28"), 800×480 (5.0"), 160×128 (1.8"), 128×64 (0.96"), Custom |
 
 ---
 
@@ -104,22 +121,20 @@ flowchart LR
     B --> C["📦 3. Xuất mã nguồn & Nạp MCU<br/>(C++ Sketch, Header, Dirty DMA)"]
 ```
 
-1. **Thiết kế:** Kéo thả các widget từ bảng công cụ bên trái vào màn hình LCD. Căn chỉnh vị trí, màu sắc, font chữ và hình ảnh ở bảng Inspector bên phải.
-2. **Xem trước (Preview):** Nhấn phím `Shift + Enter` để bật chế độ mô phỏng tương tác. Bấm nút, kéo thanh trượt, thử nghiệm hiệu ứng chuyển trang và thay đổi giá trị cảm biến ảo.
-3. **Xuất mã nguồn (Export):** Chọn **Export** -> Đặt tên dự án và chọn thư mục lưu. Ứng dụng sẽ tự động sinh đầy đủ sketch Arduino, font và thư viện tương thích. Chỉ cần mở bằng Arduino IDE / PlatformIO và nạp vào mạch!
+1. **Thiết kế:** kéo widget từ bảng bên trái vào màn hình; chỉnh vị trí, màu, font, hình ảnh ở Inspector bên phải.
+2. **Xem trước:** nhấn `Shift + Enter` để mô phỏng tương tác — bấm nút, kéo slider, thử chuyển trang và đổi giá trị cảm biến ảo.
+3. **Xuất mã nguồn:** chọn **Export**, đặt tên dự án và thư mục lưu. Mở bằng Arduino IDE / PlatformIO rồi nạp vào mạch.
 
 ---
 
 ## 💻 Mã nguồn nhúng sinh ra
-
-Mã nguồn C++ do LCD_Studio sinh ra cực kỳ tinh gọn, dễ hiểu và dễ tích hợp vào firmware hiện có của bạn:
 
 ```cpp
 #include "lcd_studio.h"
 
 void setup() {
     Serial.begin(115200);
-    
+
     // Khởi tạo phần cứng màn hình & cảm ứng
     ui_init();
 }
@@ -127,71 +142,99 @@ void setup() {
 void loop() {
     // 1. Đọc dữ liệu từ cảm biến thực tế
     float currentTemp = readTemperatureSensor();
-    
-    // 2. Cập nhật biến giao diện — LCD_Studio tự động phát hiện vùng thay đổi!
+
+    // 2. Cập nhật biến giao diện — LCD Studio tự phát hiện vùng thay đổi
     ui_setVariable("temperature", String(currentTemp, 1));
-    
-    // 3. Xử lý cảm ứng GT911/XPT2046 và quét vẽ lại vùng dirty qua DMA
+
+    // 3. Xử lý cảm ứng GT911/XPT2046 và vẽ lại vùng dirty qua DMA
     ui_tick();
-    
+
     delay(10);
 }
 ```
 
 ---
 
-## 🔤 Tùy biến & Thêm Font chữ mới
+## 🔤 Tùy biến & thêm font chữ mới
 
-LCD_Studio đã tích hợp sẵn 20 bộ font tiếng Việt và tiếng Anh tuyển chọn. Nếu bạn muốn thêm font riêng:
+LCD Studio có sẵn 20 bộ font tiếng Việt và tiếng Anh. Để thêm font riêng:
 
-1. Tạo thư mục `VN/` (cho font tiếng Việt) hoặc `EN/` (cho font tiếng Anh) **nằm ngay cạnh file `LCD_Studio.exe`**.
-2. Sao chép các file font định dạng `.ttf` hoặc `.otf` của bạn vào đó.
-3. Mở phần mềm (hoặc bấm **Refresh Fonts** trong tab Fonts), các font mới sẽ tự động xuất hiện trong danh sách để bạn chọn!
+1. Tạo thư mục `VN/` (font tiếng Việt) hoặc `EN/` (font tiếng Anh) **ngay cạnh `LCD_Studio.exe`**.
+2. Chép các file `.ttf` / `.otf` vào đó.
+3. Mở lại phần mềm (hoặc bấm **Refresh Fonts** trong tab Fonts) — font mới sẽ tự xuất hiện.
 
 ---
 
-## ⌨️ Phím tắt tiện ích
+## ⌨️ Phím tắt
 
 | Phím tắt | Chức năng |
 | :---: | :--- |
-| `Ctrl + N` / `Ctrl + O` | Tạo dự án mới / Mở dự án có sẵn |
-| `Ctrl + S` / `Ctrl + Shift + S` | Lưu dự án / Lưu dự án thành bản sao mới |
-| `Ctrl + Z` / `Ctrl + Y` | Hoàn tác (Undo) / Làm lại (Redo) |
+| `Ctrl + N` / `Ctrl + O` | Dự án mới / Mở dự án |
+| `Ctrl + S` / `Ctrl + Shift + S` | Lưu / Lưu thành bản sao |
+| `Ctrl + Z` / `Ctrl + Y` | Undo / Redo |
 | `Ctrl + C` / `Ctrl + V` / `Ctrl + D` | Sao chép / Dán / Nhân đôi Widget |
 | `Delete` / `Backspace` | Xóa đối tượng đang chọn |
-| `Ctrl + G` / `Ctrl + Shift + G` | Nhóm (Group) / Rã nhóm (Ungroup) |
-| `Space + Kéo chuột` | Di chuyển vùng làm việc (Pan Canvas) |
-| `Ctrl + Phím cuộn chuột` | Phóng to / Thu nhỏ (Zoom in/out) |
-| `Ctrl + 0` / `Ctrl + 1` | Xem vừa khung (Fit) / Xem tỉ lệ gốc 100% |
-| `Shift + Enter` | Bật / Tắt chế độ chạy thử nghiệm (Live Preview) |
-| `Chuột phải` | Mở menu thao tác nhanh ngữ cảnh (Context Menu) |
+| `Ctrl + G` / `Ctrl + Shift + G` | Group / Ungroup |
+| `Space + Kéo chuột` | Pan canvas |
+| `Ctrl + Cuộn chuột` | Zoom in/out |
+| `Ctrl + 0` / `Ctrl + 1` | Fit / 100% |
+| `Shift + Enter` | Bật/tắt Live Preview |
+| `Chuột phải` | Context Menu |
 
 ---
 
-<details>
-<summary><strong>🔧 Dành cho Nhà phát triển (Build từ mã nguồn)</strong></summary>
+## ❓ Câu hỏi thường gặp (FAQ)
 
-Nếu bạn muốn đóng góp mã nguồn hoặc tự build file executable:
+**LCD Studio là gì?**
+Là phần mềm miễn phí để thiết kế giao diện LCD/TFT/OLED và HMI cảm ứng cho vi điều khiển bằng kéo-thả, sau đó xuất mã C++ / Arduino.
+
+**LCD Studio có miễn phí không? Có cần cài đặt không?**
+Có, miễn phí và Portable — chỉ một file `LCD_Studio.exe`, chạy offline, không cần Node.js hay Python.
+
+**LCD Studio có hỗ trợ ESP32 và Arduino không?**
+Có: ESP32 / S3 / C3, STM32, RP2040, Arduino Due/Mega (xem bảng phần cứng ở trên).
+
+**Có hiển thị được tiếng Việt có dấu không?**
+Có. Thuật toán Font Bitmap Banking xử lý font tiếng Việt đầy đủ dấu, vượt giới hạn 64 KiB của Adafruit_GFX.
+
+**Tải LCD Studio ở đâu?**
+Tại mục [Releases](https://github.com/YOUR_USERNAME/LCD_Studio/releases) của repository này.
+
+**Màn hình/IC cảm ứng nào được hỗ trợ?**
+ST7796S, ST7789, ILI9341, ST7735, SSD1306, GC9A01; cảm ứng GT911, XPT2046, FT6236.
+
+---
+
+## 🤝 Đóng góp & hỗ trợ
+
+- ⭐ **Star** repo để ủng hộ dự án và giúp nhiều người tìm thấy hơn.
+- 🐛 Báo lỗi / đề xuất tính năng tại [Issues](https://github.com/YOUR_USERNAME/LCD_Studio/issues).
+- 🔀 Pull Request luôn được chào đón.
+
+<details>
+<summary><strong>🔧 Dành cho nhà phát triển (build từ mã nguồn)</strong></summary>
 
 ```powershell
-# 1. Cài đặt các thư viện cần thiết
+# 1. Cài thư viện
 npm ci
 python -m pip install -r requirements.txt
 
 # 2. Build Frontend
 npm run build
 
-# 3. Đóng gói ra file LCD_Studio.exe độc lập
+# 3. Đóng gói LCD_Studio.exe độc lập
 python build_exe.py --onefile
 ```
-File executable thành phẩm sẽ nằm tại thư mục `release/LCD_Studio.exe`.
+File thành phẩm nằm tại `release/LCD_Studio.exe`.
 </details>
 
 ---
 
 <div align="center">
 
-**Phát triển với ❤️ dành riêng cho Cộng đồng Kỹ sư Nhúng & IoT**  
-*Bản quyền © 2026 LCD_Studio. Giữ toàn quyền phát triển.*
+**Keywords:** LCD Studio · LCD_Studio · LCD Studio GitHub · LCD GUI designer · TFT UI designer · Arduino display designer · ESP32 HMI · STM32 LCD · ST7796S · ST7789 · ILI9341 · GT911 · Vietnamese font for LCD · Adafruit_GFX · embedded GUI · touch screen UI builder
+
+**Phát triển với ❤️ dành cho cộng đồng kỹ sư Nhúng & IoT**
+*© 2026 LCD Studio — [MIT License](LICENSE)*
 
 </div>
